@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      <button class="button is-primary" v-on:click="submitPerson()">Submit</button>
+      <button class="button is-primary" v-on:click="submitPers()">Submit</button>
   </div>
 </template>
 
@@ -62,7 +62,7 @@ export default {
     }
   },
   methods: {
-    submitPerson: function() {
+    submitPers: function() {
       if (this.firstName === "" || this.lastName === "" || this.email === "" || this.city === "" || this.country === "") {
         this.required = true
       }

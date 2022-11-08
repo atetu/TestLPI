@@ -40,7 +40,7 @@ export default {
   components: { PersonModal, EditPersonModal },
   name: "PersonsTable",
   props: {
-    persons: {
+    personsDict: {
       type: Object,
       required: true
     }
@@ -52,9 +52,6 @@ export default {
       showEditModal: false,
       editPersonItem: {}
     }
-  },
-  created() {
-    this.personsDict = this.persons;
   },
   methods: {
     deletePerson:function (person){
@@ -70,12 +67,11 @@ export default {
       this.showEditModal = true
       this.editPersonItem = person
     },
-
     editPerson:function (person){
       this.personsDict[person.email] = person
       this.$emit('personsUpdate', this.personsDict)
       this.showEditModal = false
-    },
+    }
   }
 };
 </script>
