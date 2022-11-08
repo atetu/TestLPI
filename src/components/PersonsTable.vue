@@ -53,13 +53,16 @@ export default {
       editPersonItem: {}
     }
   },
+  created() {
+    this.personsDict = this.persons;
+  },
   methods: {
     deletePerson:function (person){
-      delete(this.personsDict[person.email])
+      delete(this.personsDict[person.id])
       this.$emit('personsUpdate', this.personsDict)
     },
     addPerson:function (person){
-      this.personsDict[person.email] = person
+      this.personsDict[person.id] = person
       this.$emit('personsUpdate', this.personsDict)
       this.showModal = false
     },
@@ -68,10 +71,11 @@ export default {
       this.editPersonItem = person
     },
     editPerson:function (person){
-      this.personsDict[person.email] = person
+      console.log(person.id)
+      this.personsDict[person.id] = person
       this.$emit('personsUpdate', this.personsDict)
       this.showEditModal = false
-    }
+    },
   }
 };
 </script>
